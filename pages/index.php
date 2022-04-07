@@ -87,9 +87,17 @@ if (isset($_POST['plugin_name']))
     $data->attribute = json_encode($attribute);
     $data->save();
 
-    $Plugin = new Plugin;
-
-    $Plugin->create($Plugin->option('plugin_name'), $Plugin);
+    if ($data->id == 0)
+    {
+        $Plugin = new Plugin;
+        $Plugin->create($Plugin->option('plugin_name'), $Plugin);
+    }
+    else
+    {
+        header('Content-Type: application/json');
+        echo json_encode(['status' => true, 'message' => 'Berhasil memperbaharui data']);
+    }
+    exit;
 }
 
 // Delete Plugin
