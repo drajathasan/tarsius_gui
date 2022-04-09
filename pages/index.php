@@ -174,7 +174,7 @@ if ((isset($_GET['action']) && $_GET['action'] == 'add') || isset($_POST['itemID
     }
 
     $form->addTextField('text', 'plugin_name', 'Nama Plugin', $data->name??'', 'class="form-control"');
-    $form->addSelectList('type', 'Tipe Plugin', [['0','Pilih'],['datalist','Data List'],['report','Report'],['print','Print'],['hook','Hook']], $data->type??'', 'class="plugin select2"', 'Tipe Plugin');
+    $form->addSelectList('type', 'Tipe Plugin', [['0','Pilih'],['datalist','Data List'],['report','Report'],['print','Print'],['hook','Hook'],['page','Page']], $data->type??'', 'class="plugin select2"', 'Tipe Plugin');
     $form->addTextField('text', 'plugin_uri', 'Alamat Unduh Plugin', $dataAttribute->plugin_uri??'', 'class="form-control"');
     $form->addTextField('textarea', 'description', 'Deskripsi', $dataAttribute->description??'', 'class="form-control"');
     $form->addTextField('text', 'version', 'Versi Plugin', $dataAttribute->version??'1.0.0', 'class="form-control w-25"');
@@ -194,6 +194,7 @@ if ((isset($_GET['action']) && $_GET['action'] == 'add') || isset($_POST['itemID
     foreach (Module::all() as $module) {
         $list .= '<option value="' . $module->module_name . '" ' . ($visibility['module_target'] == $module->module_name) . '>' . ucwords(str_replace('_', ' ', $module->module_name)) . '</option>';
     }
+    $list .= '<option value="opac" ' . ($visibility['module_target'] == 'opac') . '>Opac</option>';
 
     if (is_object($data) && $data->type == 'hook')
     {
