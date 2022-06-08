@@ -4,7 +4,7 @@ Plugin ini digunakan untuk membuat kerangka dasar dari plugin yang berbasis SLiM
 ### Cara Install
 ##### Menggunakan composer
 ```BASH
-composer require zein/tarsius zein/database
+composer require zein/tarsius zein/database:dev-main zein/tarius
 ```
 setelah proses diatas selesai selanjutnya ekstrak **zein-tarsius-main.zip** ke dalam folder plugins. Hidupkan plugin **Tarsius GUI** pada module ***system*** atau **sistem** menu **Plugin**.
 
